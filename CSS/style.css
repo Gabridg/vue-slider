@@ -20,6 +20,8 @@
 #carousel .active {
     display: inline-block;
     position: relative;
+    height: 100%;
+    width: 100%;
 }
 
 .fa-solid {
@@ -27,7 +29,6 @@
 }
 
 #carousel strong {
-    /* display: none; */
     position: absolute;
     color: #fff;
     top: 0;
@@ -50,6 +51,8 @@
 .pics {
     position: relative;
     display: none;
+    height: 100%;
+    width: 100%;
 }
 
 #thumbnails .active {
