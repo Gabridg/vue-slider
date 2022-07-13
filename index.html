@@ -23,17 +23,17 @@
     <div class="container" id="root">
 
         <div class="gallery d-flex align-items-center mt-5">
-            <div><i class="fa-solid fa-circle-arrow-left fa-2x pe-1" id="back"></i></div>
+            <div><i class="fa-solid fa-circle-arrow-left fa-2x pe-1" @click="prevPic"></i></div>
             <div id="carousel">
                 <div v-for="(pic,index) in pictures" :class="currentActiveIndex === index ? 'active' : 'pics'">
                     <img :src="pic.url" :alt="pic.title"><strong>{{ pic.title}}</strong><span>{{pic.description}}</span>
                 </div>
             </div>
-            <div><i class="fa-solid fa-circle-arrow-right fa-2x ps-1" id="next"></i></div>
+            <div><i class="fa-solid fa-circle-arrow-right fa-2x ps-1" @click="nextPic"></i></div>
         </div>
         <div id="thumbnails" class="d-flex align-items-center justify-content-center mt-3">
             <img v-for="(pic, index) in pictures" :src="pic.url" :alt="pic.title"
-                :class="{'active' : currentActiveIndex === index}">
+                :class="{'active' : currentActiveIndex === index}" @click="this.currentActiveIndex = index">
         </div>
     </div>
 

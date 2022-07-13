@@ -22,6 +22,7 @@ Buon lavoro e buon divertimento!
 const root = new Vue({
     el: '#root',
     data: {
+        currentActiveIndex: 0,
         pictures: [
             {
                 url: 'http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg',
@@ -50,10 +51,25 @@ const root = new Vue({
                 title: 'Colombia',
                 description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.',
             },
-        ],
-        currentActiveIndex: 0,
+        ]
+    },
+    computed: {
+        isFirst() {
+            return this.currentActiveIndex === 0
+        },
+        isLast() {
+            return this.currentActiveIndex === this.pictures.length - 1
+        },
     },
     methods: {
+        nextPic() {
+            if (this.isLast) this.currentActiveIndex = 0;
+            else this.currentActiveIndex++;
+        },
 
+        prevPic() {
+            if (this.isFirst) this.currentActiveIndex = this.pictures.length - 1;
+            else this.currentActiveIndex--;
+        },
     }
 })
